@@ -20,6 +20,7 @@ import { User } from '../../../../shared/models/user.model';
 export class UsersTableComponent {
   @Input() users: User[] | undefined;
   @Output() showUpdateDialog = new EventEmitter<string>();
+
   @ViewChild('op') op!: Popover;
 
   selectedUserId: string | undefined;

@@ -2,7 +2,7 @@ import { MenuItem } from 'primeng/api';
 import { AvatarModule } from 'primeng/avatar';
 import { DrawerModule } from 'primeng/drawer';
 import { MenuModule } from 'primeng/menu';
-import { MenubarModule } from 'primeng/menubar';
+import { Menubar, MenubarModule } from 'primeng/menubar';
 import { PopoverModule } from 'primeng/popover';
 import { RippleModule } from 'primeng/ripple';
 
@@ -28,6 +28,7 @@ import { MessagesDrawerComponent } from '../messages-drawer/messages-drawer.comp
     MessagesDrawerComponent,
     RippleModule,
     CommonModule,
+    Menubar,
   ],
   templateUrl: './topmenu.component.html',
   styleUrl: './topmenu.component.scss',
@@ -84,9 +85,22 @@ export class TopmenuComponent {
       {
         label: 'System settings',
         icon: 'pi pi-cog',
-        command: () => {
-          this.router.navigate([ROUTE_PATH.SYSTEM_SETTINGS]);
-        },
+        items: [
+          {
+            label: 'Water price settings',
+            icon: '',
+            command: () => {
+              this.router.navigate([ROUTE_PATH.WATER_PRICE_SETTINGS]);
+            },
+          },
+          {
+            label: 'Room settings',
+            icon: '',
+            command: () => {
+              this.router.navigate([ROUTE_PATH.ROOM_SETTINGS]);
+            },
+          },
+        ],
         visible: isAdmin,
       },
     ];
@@ -94,7 +108,7 @@ export class TopmenuComponent {
     this.userMenu = [
       {
         label: 'Notifications',
-        icon: 'pi pi-plus',
+        visible: !isAdmin,
         items: [
           {
             label: 'Messages',
