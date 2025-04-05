@@ -1,0 +1,12 @@
+<ds-payment-history-table-action-bar
+  *ngIf="loadedUser$ | ngrxPush"
+  [users]="userDataSource$ | ngrxPush"
+  [activeUser]="activeUser$ | ngrxPush"
+  (changeTenantEvent)="changeActiveUser($event!)"
+/>
+<ds-payment-history-table
+  [data]="dataSource$ | ngrxPush"
+  (createPayment)="createPayment($event)"
+/>
+
+<ds-payment-dialog [(visible)]="isPaymentDialogVisible" />

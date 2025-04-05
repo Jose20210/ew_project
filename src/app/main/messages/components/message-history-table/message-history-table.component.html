@@ -1,0 +1,33 @@
+<p-table
+  stripedRows
+  [paginator]="true"
+  [rows]="10"
+  [rowsPerPageOptions]="[10, 20, 30]"
+  [value]="messages!"
+>
+  <ng-template #header>
+    <tr>
+      <th class="w-2/8">Timestamp</th>
+      <th class="w-4/8">Message</th>
+      <th class="max-w-2/8">Recipients Name</th>
+    </tr>
+  </ng-template>
+  <ng-template #body let-message>
+    <tr>
+      <td>{{ message?.timestamp }}</td>
+      <td>{{ message?.message }}</td>
+      <td>
+        <div
+          class="flex gap-2 flex-wrap"
+          *ngIf="message?.recipientsName?.length > 0"
+        >
+          <p-chip
+            class="text-sm"
+            *ngFor="let recipient of message.recipientsName"
+            [label]="recipient"
+          />
+        </div>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

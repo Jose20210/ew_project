@@ -1,0 +1,29 @@
+<p-table
+  stripedRows
+  [paginator]="true"
+  [rows]="10"
+  [rowsPerPageOptions]="[10, 20, 30]"
+  [value]="data!"
+  [tableStyle]="{ 'min-width': '50rem' }"
+>
+  <ng-template #header let>
+    <tr>
+      <th>Water Consumption (m3)</th>
+      <th>Price per meter</th>
+      <th>Tenant's Name</th>
+      <th>Room No</th>
+      <th>Date</th>
+      <th>Time</th>
+    </tr>
+  </ng-template>
+  <ng-template #body let-data>
+    <tr>
+      <td>{{ data.consumption }}</td>
+      <td>{{ data.pricePerMeter || '-' }}</td>
+      <td>{{ data.tenantName }}</td>
+      <td>{{ data.roomNo }}</td>
+      <td>{{ data.date }}</td>
+      <td>{{ data.time }}</td>
+    </tr>
+  </ng-template>
+</p-table>

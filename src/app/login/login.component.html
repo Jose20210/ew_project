@@ -1,0 +1,38 @@
+<div class="min-h-screen bg-crystal-blue flex justify-center items-center">
+  <p-card class="md:w-3/12" header="Welcome">
+    <form (submit)="signIn($event)" class="flex flex-col gap-4">
+      <p-floatlabel variant="in">
+        <input
+          pInputText
+          id="email"
+          [formControl]="emailFormControl"
+          autocomplete="off"
+          required
+          fluid
+        />
+        <label for="email">Email</label>
+      </p-floatlabel>
+
+      <p-floatlabel variant="in">
+        <input
+          pInputText
+          id="password"
+          [formControl]="passwordFormControl"
+          autocomplete="off"
+          type="password"
+          required
+          fluid
+        />
+        <label for="password">Password</label>
+      </p-floatlabel>
+      <p-button
+        type="submit"
+        label="Log in"
+        [loading]="loading$ | ngrxPush"
+        pRipple
+        fluid
+        (click)="signIn($event)"
+      />
+    </form>
+  </p-card>
+</div>

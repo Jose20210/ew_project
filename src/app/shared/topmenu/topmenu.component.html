@@ -1,0 +1,47 @@
+<ds-messages-drawer
+  [(isVisible)]="isMessageDrawerVisiblie"
+></ds-messages-drawer>
+
+<p-popover #op>
+  <p-menu class="user-menu" [model]="userMenu">
+    <ng-template #item let-item>
+      <a pRipple class="flex items-center p-menu-item-link">
+        <span [class]="item.icon"></span>
+        <span class="ml-2">{{ item.label }}</span>
+        <span
+          *ngIf="item.shortcut"
+          class="ml-auto border border-surface rounded bg-emphasis text-muted-color text-xs p-1"
+          >{{ item.shortcut }}</span
+        >
+      </a>
+    </ng-template>
+  </p-menu>
+</p-popover>
+
+<p-menubar class="topmenu" [model]="items">
+  <ng-template #start
+    ><img src="4aba474f2ad1f21ab312f0f4dedba422.png" class="w-[60px]"
+  /></ng-template>
+
+  <ng-template #item let-items let-root="root">
+    <a pRipple class="flex items-center p-menubar-item-link">
+      <i [ngClass]="['pi', items.icon]"></i>
+      <span>{{ items.label }}</span>
+      <i
+        *ngIf="items.items"
+        [ngClass]="['ml-auto pi', root ? 'pi-angle-down' : 'pi-angle-right']"
+      ></i>
+    </a>
+  </ng-template>
+
+  <ng-template #end>
+    <div class="flex items-center gap-2">
+      <p-avatar
+        image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
+        shape="circle"
+        size="large"
+        (click)="op.toggle($event)"
+      />
+    </div>
+  </ng-template>
+</p-menubar>

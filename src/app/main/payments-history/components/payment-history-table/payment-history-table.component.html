@@ -1,0 +1,45 @@
+<ng-template #paymentStatus let-status="status">
+  <label *ngIf="status">Paid</label>
+  <label *ngIf="!status">-</label>
+</ng-template>
+
+<p-table
+  stripedRows
+  [paginator]="true"
+  [rows]="10"
+  [rowsPerPageOptions]="[10, 20, 30]"
+  [value]="data!"
+  [tableStyle]="{ 'min-width': '50rem' }"
+>
+  <ng-template #header let>
+    <tr>
+      <th>Month</th>
+      <th>Total Consumption (m3)</th>
+      <th>Total Balance</th>
+      <th>Average Price (per M3)</th>
+      <th>Payment Status</th>
+      <th style="width: 10rem"></th>
+    </tr>
+  </ng-template>
+  <ng-template #body let-data>
+    <tr>
+      <td>{{ data.month }}</td>
+      <td>{{ data.totalConsumption }}</td>
+      <td>{{ data.totalBalance }}</td>
+      <td>{{ data.pricePerCubicMeter }}</td>
+      <td>
+        <ng-container
+          *ngTemplateOutlet="paymentStatus; context: { status: data.status }"
+        ></ng-container>
+      </td>
+      <td>
+        <p-button
+          *ngIf="!data.status"
+          label="Pay now"
+          (onClick)="payNow(data)"
+          [loading]="data.loading"
+        />
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

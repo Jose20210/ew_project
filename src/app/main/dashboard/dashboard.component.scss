@@ -1,0 +1,22 @@
+::ng-deep {
+  .p-menubar {
+    border-radius: 0 !important;
+  }
+
+  .p-menu {
+    height: 100%;
+  }
+
+  .topmenu .p-menubar {
+    border: none;
+  }
+
+  .sidemenu .p-menu {
+    border-top: none;
+    height: calc(100vh - 100px);
+  }
+
+  .user-menu .p-menu {
+    border: none;
+  }
+}
