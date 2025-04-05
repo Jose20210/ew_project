@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "https://api-tdfsvvlc3q-de.a.run.app",
+    "target": "http://localhost:4200/api",
     "secure": false,
     "pathRewrite": {
       "^/api": ""
