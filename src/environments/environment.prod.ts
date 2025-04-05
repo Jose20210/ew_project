@@ -9,6 +9,6 @@ export const environment = {
     appId: "1:414630837271:web:c65c8baa7362d85f4b7052",
   },
   api: {
-    url: 'https://api-tdfsvvlc3q-de.a.run.app',
+    url: 'https://api-w2nfby5zxa-de.a.run.app',
   },
 };
