@@ -1,12 +1,12 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-  apiKey: "AIzaSyBDjaOkhXe4u3wrfUouILeX7rBVbd_STGc",
-  authDomain: "ew-dorm-project.firebaseapp.com",
-  projectId: "ew-dorm-project",
-  storageBucket: "ew-dorm-project.firebasestorage.app",
-  messagingSenderId: "414630837271",
-  appId: "1:414630837271:web:c65c8baa7362d85f4b7052",
+    apiKey: 'AIzaSyABFD3y8YNfFth0sx54S036AITTNWuZSW4',
+    authDomain: 'dorm-system-bf714.firebaseapp.com',
+    projectId: 'dorm-system-bf714',
+    storageBucket: 'dorm-system-bf714.firebasestorage.app',
+    messagingSenderId: '528294967959',
+    appId: '1:528294967959:web:bc5bee056a309177e3c7d2',
   },
   api: {
     url: 'http://localhost:4200/api',
